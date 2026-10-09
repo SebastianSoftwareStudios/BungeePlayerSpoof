@@ -1,14 +1,13 @@
-package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands;
+package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.sub;
 
 import com.sebastiangrupo.studios.BungeePlayerSpoof.PlayerCounter;
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.SubCommand;
 import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.utils.BungeeSend;
 import net.md_5.bungee.api.CommandSender;
-import net.md_5.bungee.api.plugin.Command;
 
-public class DropPlayers extends Command {
+public class DropPlayers implements SubCommand {
     private final PlayerCounter counter;
     public DropPlayers(PlayerCounter counter) {
-        super("dropPlayers", "bungeeplayerspoof.admin");
         this.counter = counter;
     }
 

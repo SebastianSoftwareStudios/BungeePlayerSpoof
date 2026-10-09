@@ -1,7 +1,8 @@
 package com.sebastiangrupo.studios.BungeePlayerSpoof;
 
 // all commented imports are just for the config file thing, dont mind them :)
-import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.*;
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.PlayerSpoofCommand;
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.sub.*;
 import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.events.*;
 import net.md_5.bungee.api.plugin.Plugin;
 // import java.io.InputStream;
@@ -15,7 +16,6 @@ import net.md_5.bungee.api.plugin.Plugin;
 // import com.google.common.io.ByteStreams;
 
 public final class BungeeMain extends Plugin {
-    int changeit = 0;
     @Override
     public void onEnable() {
         // This is a test for the config file, in development
@@ -38,13 +38,13 @@ public final class BungeeMain extends Plugin {
         //     }
         // }
         PlayerCounter counter = new PlayerCounter();
-        getProxy().getPluginManager().registerCommand(this, new AddPlayer(counter));
-        getProxy().getPluginManager().registerCommand(this, new RemovePlayer(counter));
-        getProxy().getPluginManager().registerCommand(this, new SetPlayer(counter));
-        getProxy().getPluginManager().registerCommand(this, new DropPlayers(counter));
-        getProxy().getPluginManager().registerCommand(this, new SetPlayerRange(counter));
-        getProxy().getPluginManager().registerCommand(this, new AddPlayers(counter));
-        getProxy().getPluginManager().registerCommand(this, new RemovePlayers(counter));
+        PlayerSpoofCommand command = new PlayerSpoofCommand();
+        command.register("add", new AddPlayers(counter));
+        command.register("remove", new RemovePlayers(counter));
+        command.register("set", new SetPlayer(counter));
+        command.register("step", new SetPlayerStep(counter));
+        command.register("drop", new DropPlayers(counter));
+        getProxy().getPluginManager().registerCommand(this, command);
         getProxy().getPluginManager().registerListener(this, new JoinDisconnectEvent(counter));
         getProxy().getPluginManager().registerListener(this, new PingEvent(counter));
         

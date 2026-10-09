@@ -1,22 +1,21 @@
-package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands;
+package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.sub;
 
 
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.SubCommand;
 import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.utils.BungeeSend;
 import net.md_5.bungee.api.CommandSender;
-import net.md_5.bungee.api.plugin.Command;
 import com.sebastiangrupo.studios.BungeePlayerSpoof.PlayerCounter;
 
-public class SetPlayerRange extends Command {
+public class SetPlayerStep implements SubCommand {
     private final PlayerCounter counter;
-    public SetPlayerRange(PlayerCounter counter) {
-        super("setplayerrange", "bungeeplayerspoof.admin");
+    public SetPlayerStep(PlayerCounter counter) {
         this.counter = counter;
     }
 
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (args.length != 2) {
-            BungeeSend.send(sender, "Usage: /setplayerrange <min> <max>");
+            BungeeSend.send(sender, "Usage: /playerspoof step <min> <max>");
             return;
         }
 

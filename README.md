@@ -1,25 +1,22 @@
 # BungeePlayerSpoof
-Bungeecord based Player Spoofer for Minecraft
+Proxy Player Spoofer for BungeeCord and Velocity
 
-[![DeepSource](https://deepsource.io/gh/SebastianSoftware/BungeePlayerSpoof.svg/?label=active+issues&show_trend=true&token=vZX9owjuwHiGHDWNCBid08Q2)](https://deepsource.io/gh/SebastianSoftware/BungeePlayerSpoof/)
-[![60](https://img.shields.io/badge/Tests-86-yellow)](https://github.com/SebastianSoftware/BungeePlayerSpoof/)
-
-Allows fake your players in a bungeecord / proxy server
+This plugin allows to fake your playercount in BungeeCord and Velocity.
 
 ## The Plugin Contains:
 
 - [X] Random Addition And Substraction playercount on ping
-- [X] More realistic system
-- [X] Add Player Command
-- [X] Remove Player Command
-- [X] Set Playercount Command
-- [X] On join add player
-- [X] On quit remove player
-- [X] Change Range of PlayerCount change (command)
-- [X] Add Certain Amount of players Command
-- [X] Remove Certain Amount of players Command
+- [X] Add Player
+- [X] Remove Player
+- [X] Set Playercount
+- [X] Join-based increments
+- [X] Change Step of PlayerCount change
+- [X] Add/Remove Certain Amount of players
 - [X] Reset/Set the playercount to 0
+- [ ] Change range of players
+- [ ] Limit the amount of players
+- [ ] Freeze the playercount
 - [ ] Config file
 - [ ] Velocity Support (Coming Very Soon)
 
-(Unchecked marks are things todo, 92.30% done)
+(Unchecked marks are things todo, 61.53% done)

@@ -1,21 +1,20 @@
-package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands;
+package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.sub;
 
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.SubCommand;
 import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.utils.BungeeSend;
 import net.md_5.bungee.api.CommandSender;
-import net.md_5.bungee.api.plugin.Command;
 import com.sebastiangrupo.studios.BungeePlayerSpoof.PlayerCounter;
 
-public class SetPlayer extends Command {
+public class SetPlayer implements SubCommand {
     private final PlayerCounter counter;
     public SetPlayer(PlayerCounter counter) {
-        super("setplayer", "bungeeplayerspoof.admin");
         this.counter = counter;
     }
 
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (args.length != 1) {
-            BungeeSend.send(sender, "Usage: /setplayer <number>");
+            BungeeSend.send(sender, "Usage: /playerspoof set <number>");
             return;
         }
         int playersset;

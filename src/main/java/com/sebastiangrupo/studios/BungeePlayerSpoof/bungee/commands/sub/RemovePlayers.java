@@ -1,21 +1,20 @@
-package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands;
+package com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.sub;
 
 import com.sebastiangrupo.studios.BungeePlayerSpoof.PlayerCounter;
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.SubCommand;
 import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.utils.BungeeSend;
 import net.md_5.bungee.api.CommandSender;
-import net.md_5.bungee.api.plugin.Command;
 
-public class RemovePlayers extends Command {
+public class RemovePlayers implements SubCommand {
     private final PlayerCounter counter;
     public RemovePlayers(PlayerCounter counter) {
-        super("removePlayers", "bungeeplayerspoof.admin");
         this.counter = counter;
     }
 
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (args.length != 1) {
-            BungeeSend.send(sender, "Usage: /removePlayers <number>");
+            BungeeSend.send(sender, "Usage: /playerspoof remove <number>");
             return;
         }
 
