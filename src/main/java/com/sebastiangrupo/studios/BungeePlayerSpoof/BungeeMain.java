@@ -1,9 +1,8 @@
-package me.sebasorovaa.BungeePlayerSpoof;
+package com.sebastiangrupo.studios.BungeePlayerSpoof;
 
 // all commented imports are just for the config file thing, dont mind them :)
-import me.sebasorovaa.BungeePlayerSpoof.commands.*;
-import me.sebasorovaa.BungeePlayerSpoof.events.JoinDisconnectEvent;
-import me.sebasorovaa.BungeePlayerSpoof.events.PingEvent;
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.commands.*;
+import com.sebastiangrupo.studios.BungeePlayerSpoof.bungee.events.*;
 import net.md_5.bungee.api.plugin.Plugin;
 // import java.io.InputStream;
 // import java.io.File;
@@ -15,8 +14,7 @@ import net.md_5.bungee.api.plugin.Plugin;
 // import java.io.FileOutputStream;
 // import com.google.common.io.ByteStreams;
 
-public final class Main extends Plugin {
-    public static int fakepla = 4;
+public final class BungeeMain extends Plugin {
     int changeit = 0;
     @Override
     public void onEnable() {
@@ -39,16 +37,16 @@ public final class Main extends Plugin {
         //         throw new RuntimeException("Unable to create configuration file", e);
         //     }
         // }
-
-        getProxy().getPluginManager().registerCommand(this, new AddPlayer());
-        getProxy().getPluginManager().registerCommand(this, new RemovePlayer());
-        getProxy().getPluginManager().registerCommand(this, new SetPlayer());
-        getProxy().getPluginManager().registerCommand(this, new DropPlayers());
-        getProxy().getPluginManager().registerCommand(this, new SetPlayerRange());
-        getProxy().getPluginManager().registerCommand(this, new AddPlayers());
-        getProxy().getPluginManager().registerCommand(this, new RemovePlayers());
-        getProxy().getPluginManager().registerListener(this, new JoinDisconnectEvent());
-        getProxy().getPluginManager().registerListener(this, new PingEvent());
+        PlayerCounter counter = new PlayerCounter();
+        getProxy().getPluginManager().registerCommand(this, new AddPlayer(counter));
+        getProxy().getPluginManager().registerCommand(this, new RemovePlayer(counter));
+        getProxy().getPluginManager().registerCommand(this, new SetPlayer(counter));
+        getProxy().getPluginManager().registerCommand(this, new DropPlayers(counter));
+        getProxy().getPluginManager().registerCommand(this, new SetPlayerRange(counter));
+        getProxy().getPluginManager().registerCommand(this, new AddPlayers(counter));
+        getProxy().getPluginManager().registerCommand(this, new RemovePlayers(counter));
+        getProxy().getPluginManager().registerListener(this, new JoinDisconnectEvent(counter));
+        getProxy().getPluginManager().registerListener(this, new PingEvent(counter));
         
         getLogger().info("PlayerSpoofer loaded");
     }

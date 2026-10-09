@@ -1,8 +1,8 @@
 name: BungeePlayerSpoof
-author: Sebasorovaa
+author: Sebastian Software Studios
 version: '${project.version}'
-main: me.sebasorovaa.BungeePlayerSpoof.Main
-description: Bungee Player Spoofing
+main: com.sebastiangrupo.studios.BungeePlayerSpoof.BungeeMain
+description: Bungeecord and Velocity player count spoofing
 commands:
   addplayer:
     aliases: [ addPlayer ]

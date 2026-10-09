@@ -1,0 +1,11 @@
+{
+  "id": "bungeeplayerspoof",
+  "main": "com.sebastiangrupo.studios.BungeePlayerSpoof.velocity.VelocityMain",
+  "name": "BungeePlayerSpoof",
+  "version": "${project.version}",
+  "description": "Bungeecord and Velocity player count spoofing",
+  "url": "https://github.com/SebastianSoftwareStudios/BungeePlayerSpoof",
+  "authors": ["Sebastian Software Studios"],
+  "dependencies": [],
+  "provides": []
+}
